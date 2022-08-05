@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GBLesson1</string>
+    <string name="this_is_the_button">This is the button</string>
+    <string name="button">Button</string>
+    <string name="number_first">Number First</string>
+    <string name="number_second">Number Second</string>
+    <string name="number_third">Number Third</string>
+
+</resources>
