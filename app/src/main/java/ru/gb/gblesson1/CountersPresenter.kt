@@ -1,29 +1,18 @@
 package ru.gb.gblesson1
 
 import moxy.MvpPresenter
+import ru.gb.gblesson1.repository.GitHubRepository
+import ru.gb.gblesson1.repository.implementation.CountersRepository
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_ONE
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_TWO
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_ZERO
 
 
-class CountersPresenter(private val model: CountersModel) : MvpPresenter<MainView>() {
+class CountersPresenter(private val repository: GitHubRepository) : MvpPresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+        viewState.initList(repository.getUsers())
     }
 
-    fun onCounterOneClick() {
-        val newValue = model.next(DEFAULT_VALUE_ZERO)
-        viewState.setCounterOneText(newValue.toString())
-    }
-
-    fun onCounterTwoClick() {
-        val newValue = model.next(DEFAULT_VALUE_ONE)
-        viewState.setCounterTwoText(newValue.toString())
-    }
-
-    fun onCounterThirdClick() {
-        val newValue = model.next(DEFAULT_VALUE_TWO)
-        viewState.setCounterThirdText(newValue.toString())
-    }
 }

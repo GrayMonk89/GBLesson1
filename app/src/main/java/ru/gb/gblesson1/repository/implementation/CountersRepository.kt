@@ -1,6 +1,6 @@
-package ru.gb.gblesson1
+package ru.gb.gblesson1.repository.implementation
 
-class CountersModel {
+class CountersRepository {
 
     private val counters = mutableListOf(0, 0, 0)
 
