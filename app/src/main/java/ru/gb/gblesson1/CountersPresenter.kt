@@ -1,28 +1,29 @@
 package ru.gb.gblesson1
 
+import moxy.MvpPresenter
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_ONE
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_TWO
 import ru.gb.gblesson1.utils.DEFAULT_VALUE_ZERO
 
-class CountersPresenter(
-    private val view: MainView
-) {
-    private val model = CountersModel()
 
-    fun onCounterClick(id: Int) {
-        when (id) {
-            DEFAULT_VALUE_ZERO -> {
-                val newValue = model.next(0)
-                view.setText(newValue.toString(), 0)
-            }
-            DEFAULT_VALUE_ONE -> {
-                val newValue = model.next(1)
-                view.setText(newValue.toString(), 1)
-            }
-            DEFAULT_VALUE_TWO -> {
-                val newValue = model.next(2)
-                view.setText(newValue.toString(), 2)
-            }
-        }
+class CountersPresenter(private val model: CountersModel) : MvpPresenter<MainView>() {
+
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+    }
+
+    fun onCounterOneClick() {
+        val newValue = model.next(DEFAULT_VALUE_ZERO)
+        viewState.setCounterOneText(newValue.toString())
+    }
+
+    fun onCounterTwoClick() {
+        val newValue = model.next(DEFAULT_VALUE_ONE)
+        viewState.setCounterTwoText(newValue.toString())
+    }
+
+    fun onCounterThirdClick() {
+        val newValue = model.next(DEFAULT_VALUE_TWO)
+        viewState.setCounterThirdText(newValue.toString())
     }
 }
