@@ -14,7 +14,7 @@ import ru.gb.gblesson1.model.GitHubUser
 import ru.gb.gblesson1.model.repository.implementation.GitHubRepositoryImpl
 import ru.gb.gblesson1.presenter.UserPresenter
 
-class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
+class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener, OnItemClickListener {
     companion object {
         fun getInstance(): UserFragment {
             return UserFragment()
@@ -28,7 +28,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
     private val binding: FragmentUserListBinding
         get() = _binding!!
 
-    private val adapter = UserAdapter()
+    private val adapter = UserAdapter(this)
 
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(GitHubRepositoryImpl(), CourseApp.instance.router)
@@ -45,7 +45,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding){
+        with(binding) {
             rvGitHubUsers.layoutManager = LinearLayoutManager(requireContext())
             rvGitHubUsers.adapter = adapter
         }
@@ -61,4 +61,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
     }
 
     override fun onBackPressed(): Boolean = presenter.onBackPressed()
+    override fun onItemClick(gitHubUser: GitHubUser) {
+        presenter.showDetails(gitHubUser)
+    }
 }

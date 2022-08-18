@@ -11,8 +11,8 @@ import ru.gb.gblesson1.databinding.FragmentUserDetailsBinding
 import ru.gb.gblesson1.databinding.FragmentUserListBinding
 import ru.gb.gblesson1.model.GitHubUser
 
-class UserAdapter() :
-    RecyclerView.Adapter<GitHubUserViewHolder>() {
+class UserAdapter(private val onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<UserAdapter.GitHubUserViewHolder>() {
 
     var users: List<GitHubUser> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
@@ -31,14 +31,16 @@ class UserAdapter() :
     }
 
     override fun getItemCount(): Int = users.size
-}
 
-class GitHubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class GitHubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
-    private val tvLogin by lazy { itemView.findViewById<TextView>(R.id.tvUserLogin) }
+        private val tvLogin by lazy { itemView.findViewById<TextView>(R.id.tvUserLogin) }
 
-    fun bind(item: GitHubUser) = with(item) {
-        tvLogin.text = login
+        fun bind(item: GitHubUser) = with(item) {
+            tvLogin.text = login
+            itemView.setOnClickListener { onItemClickListener.onItemClick(item) }
+        }
     }
 }
+
