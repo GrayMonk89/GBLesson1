@@ -1,4 +1,4 @@
-package ru.gb.gblesson1.repository
+package ru.gb.gblesson1.model.repository
 
 import ru.gb.gblesson1.model.GitHubUser
 

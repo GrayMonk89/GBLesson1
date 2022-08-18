@@ -1,7 +1,7 @@
-package ru.gb.gblesson1.repository.implementation
+package ru.gb.gblesson1.model.repository.implementation
 
 import ru.gb.gblesson1.model.GitHubUser
-import ru.gb.gblesson1.repository.GitHubRepository
+import ru.gb.gblesson1.model.repository.GitHubRepository
 
 class GitHubRepositoryImpl: GitHubRepository {
 

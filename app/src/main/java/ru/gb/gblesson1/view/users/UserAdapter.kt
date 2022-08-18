@@ -1,4 +1,4 @@
-package ru.gb.gblesson1.main
+package ru.gb.gblesson1.view.users
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.gb.gblesson1.R
+import ru.gb.gblesson1.databinding.FragmentUserDetailsBinding
+import ru.gb.gblesson1.databinding.FragmentUserListBinding
 import ru.gb.gblesson1.model.GitHubUser
 
-class UserAdapter() : RecyclerView.Adapter<GitHubUserViewHolder>() {
+class UserAdapter() :
+    RecyclerView.Adapter<GitHubUserViewHolder>() {
 
     var users: List<GitHubUser> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
@@ -31,6 +34,7 @@ class UserAdapter() : RecyclerView.Adapter<GitHubUserViewHolder>() {
 }
 
 class GitHubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
 
     private val tvLogin by lazy { itemView.findViewById<TextView>(R.id.tvUserLogin) }
 

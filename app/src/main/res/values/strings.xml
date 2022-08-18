@@ -5,5 +5,6 @@
     <string name="number_first">Number First</string>
     <string name="number_second">Number Second</string>
     <string name="number_third">Number Third</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

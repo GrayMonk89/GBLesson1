@@ -1,4 +1,4 @@
-package ru.gb.gblesson1.user
+package ru.gb.gblesson1.view.users
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import moxy.ktx.moxyPresenter
 import ru.gb.gblesson1.CourseApp
 import ru.gb.gblesson1.core.OnBackPressedListener
 import ru.gb.gblesson1.databinding.FragmentUserListBinding
-import ru.gb.gblesson1.main.UserAdapter
 import ru.gb.gblesson1.model.GitHubUser
-import ru.gb.gblesson1.repository.implementation.GitHubRepositoryImpl
+import ru.gb.gblesson1.model.repository.implementation.GitHubRepositoryImpl
+import ru.gb.gblesson1.presenter.UserPresenter
 
 class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
     companion object {

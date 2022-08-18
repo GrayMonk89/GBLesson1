@@ -1,7 +1,6 @@
-package ru.gb.gblesson1.main
+package ru.gb.gblesson1.view
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
@@ -9,8 +8,7 @@ import ru.gb.gblesson1.CourseApp
 import ru.gb.gblesson1.R
 import ru.gb.gblesson1.core.OnBackPressedListener
 import ru.gb.gblesson1.databinding.ActivityMainBinding
-import ru.gb.gblesson1.model.GitHubUser
-import ru.gb.gblesson1.repository.implementation.GitHubRepositoryImpl
+import ru.gb.gblesson1.presenter.MainPresenter
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
